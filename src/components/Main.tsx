@@ -55,13 +55,13 @@ function Main() {
                 <div className="w-[720px] px-10 sm:px-0 relative">
                     <input
                         type="text"
-                        className="pl-10 border-2 rounded-full hover:shadow-md min-w-full p-2 focus:ring-transparent focus:border-none focus:outline-none"
+                        className="pl-10 border-2 rounded-full hover:shadow-md min-w-full p-2 focus:ring-transparent focus:outline-none"
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         placeholder="Search Google"
                         onKeyDown={handleKeyDown}
                     />
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="absolute top-1/2 left-3 transform -translate-y-1/2 w-5 h-5 text-slate-400" onClick={handleSearch}>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="absolute top-1/2 sm:left-3 left translate-x-1/2 sm:translate-x-0 transform -translate-y-1/2 w-5 h-5 text-slate-400" onClick={handleSearch}>
                         <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                     </svg>
                 </div>
@@ -69,11 +69,11 @@ function Main() {
 
             {loading && <div>Loading...</div>}
 
-            <div className="container flex flex-col justify-center gap-4 p-10">
+            <div className="container flex flex-col justify-center items-center gap-4 p-10">
                 {results.length > 0 && !loading && (
-                    <div className="w-full">
+                    <div className="max-w-3xl">
                         {results.map((result, index) => (
-                            <div key={index} className="border-b py-4">
+                            <div key={index} className="rounded-md p-4 shadow-md my-2 hover:shadow-lg transition-all duration-300 border border-slate-300">
                                 <a href={result.link} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline text-lg">{result.title}</a>
                                 <p className="text-gray-600">{result.snippet}</p>
                             </div>
